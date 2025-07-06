@@ -1,22 +1,19 @@
-"use client"
-
-import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
+"use client";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
 
 export default function HomePage() {
   const [form, setForm] = useState({ nome: "", email: "", empresa: "" });
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Formulário enviado:", form);
-    // Aqui você pode adicionar integração com backend ou um webhook do Zapier/Formspree
   };
 
   return (
@@ -27,7 +24,7 @@ export default function HomePage() {
         </h1>
         <p className="text-gray-600 mb-8">
           Plataforma SaaS para gerar propostas, faturas, controlar obras e
-          funcionários — tudo em português, inglês e holandês.
+          funcionários — em português, inglês e holandês.
         </p>
 
         <Card className="shadow-xl">
